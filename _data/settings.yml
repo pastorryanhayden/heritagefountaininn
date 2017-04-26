@@ -1,0 +1,31 @@
+church_name: Heritage Baptist Church
+church_logo_image_path: /uploads/logo.png
+church_logo2_image_path: /uploads/logo2.jpg
+main_image: /uploads/wood.png
+phone: (864) 862-5348
+church_email: info@heritagefountaininn.com
+facebook: 'https://www.facebook.com/heritagebaptistchurchstokesdale/'
+twitter:
+youtube:
+address: 511 South Main Street
+address2:
+City: Fountain Inn
+State: SC
+Zip: '29644'
+main_blog_image: /uploads/1.jpg
+main_sermon_image: /uploads/2.jpg
+default_calendar_image: /uploads/3.jpg
+services:
+  - name: Sunday School
+    time:
+    day: Sunday
+  - name: Morning Worship
+    time:
+    day: Sunday
+  - name: Bible Study
+    time:
+    day: Wednesday
+lattitude: '34.685126'
+longitude: '-82.191801'
+map_zoom_level: 15
+Google_calendar_id: leonhart4@gmail.com

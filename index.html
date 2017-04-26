@@ -1,0 +1,107 @@
+---
+layout: home
+gallery:
+  - gallery_image: uploads/IMG_0395.jpeg
+  - gallery_image: uploads/IMG_0425.jpeg
+  - gallery_image: uploads/IMG_0444.jpeg
+  - gallery_image: uploads/IMG_0446.jpeg
+  - gallery_image: uploads/IMG_0475.jpeg
+  - gallery_image: uploads/IMG_0481.jpeg
+  - gallery_image: uploads/IMG_0477.jpeg
+  - gallery_image: uploads/IMG_2570.jpeg
+plan_a_visit:
+  - heading: What are Sunday worship services like?
+    text_markdown: 'After a time of fellowship, we start our service with prayer. As a congregation we sing hymns and choruses. There is special music offered to the Lord as worship.  We take up an offering (visitors are not expected to give) and then the pastor or a special speaker will preach from the Scriptures. '
+  - heading: What are Wednesday evenings like?
+    text_markdown: After a time of fellowship we sing some favorite songs. We then have an opportunity for people to share praises and to share prayer requests. We have a short Bible study, and then we take time to pray for each other.  Wednesday evenings are more casual than Sunday mornings.
+  - heading: When do you meet?
+    text_markdown: |-
+      #### Sundays:
+
+      * Sunday School - 10:00AM
+      * Morning Service - 11:00AM
+      * Evening Service - 6:00PM
+
+      #### Wednesdays
+
+      * Bible Study - 7:00 PM
+  - heading: What should I wear?
+    text_markdown: We have no dress code. We only ask that you wear something that is comfortable but not distracting to those around you.
+  - heading: Is there anything for my kids?
+    text_markdown: |-
+      We believe in worshipping together as a family. Children of all ages are welcome in our services. The messages are designed to be understood by even elementary aged children.
+      Nursery facilities are provided for children up to age four.
+  - heading: Am I expected to give?
+    text_markdown: 'No.  We do take an offering on Sundays, but it is for our members.  We do not expect our guests to give anything.  You have given us enough by visiting.'
+  - heading: What do you believe?
+    text_markdown: 'We believe in the inspiration and inerrancy of Scriptures, the trinity of the Godhead, the virgin birth of Christ, and the death, burial, and resurrection of Jesus Christ. We believe that salvation is by grace through faith in Christ’s finished work on Calvary, and we look forward to the return of Christ.
+    <br>
+    [Click here](#) to download our full statement of faith.'
+---
+{% assign settings = settings.data.settings %}
+<nav id="menu">
+    {% include menu.html %}
+</nav>
+
+<main id="panel">
+  <div class="header">
+    <div class="wrapper">
+    <h1><a href="{{site.url}}/"><img src="{{settings.church_logo_image_path}}" alt="{{settings.church_name}}" /></a></h1>
+    <a href="#" class="toggle-button"><span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x"></i>
+  <i class="fa fa-bars fa-stack-1x fa-inverse"></i>
+</span> MENU</a>
+    </div><!--/wrapper-->
+  </div><!--/header-->
+  <div class="hero" style="background: url(uploads/wood.png) center center; ">
+      <div class="main-heading">
+      <h1 class="editable">A Place To Call Home</h1>
+      <p class="editable">We invite you join us at Heritage Baptist Church for worship and fellowship as we focus our attention on the Word of God. </p>
+      <a href="#" class="hollow button">Plan A Visit</a>
+      </div><!--/main-heading-->
+  </div><!--/hero-->
+  <div class="plan-a-visit">
+    <h2>Plan A Visit</h2>
+    <p class="editable">Visiting a new church can be an intimidating experience.  We want to put you at ease by answering the most common questions people have&hellip;</p>
+    <div class="row small-up-1 medium-up-2 visit-sections">
+      {% for section in page.plan_a_visit%}
+      <div class="column section"><h3>{{section.heading}}</h3> {{section.text_markdown | markdownify}}</div><!--/column-->
+      {% endfor %}
+    </div><!--/row small-up etc.-->
+  </div><!--/plan-a-visit-->
+  {% include map.html %}
+  <div class="photos">
+  <div class="photos-inner" id="sqr-gallery">
+     {% for img in page.gallery limit: 12 %}
+        <div class="photo"><a href="#" data-featherlight="{{img.gallery_image}} " style="background: url({{img.gallery_image | replace: '.', '_thumb.' }}) no-repeat center center; background-size: cover; width: 250px; height: 250px; line-height: 250px; display: block;"></a></div>
+      {% endfor %}
+  </div><!--/photos-inner-->
+</div><!--/gallery-->
+<div class="meet-pastor">
+  {% if site.leaders > 1 %}
+    <h2 class="editable">Our Pastors:</h2>
+{% else %}
+<h2 class="editable">Our Pastor:</h2>
+{% endif %}
+
+  {% for leader in site.leaders %}
+  <div class="leader">
+  <img src="{{ leader.Thumbnail_path }}" alt="{{leader.Name}}" />
+  <h3>{{leader.Name}}</h3>
+  <ul class="social-menu">
+    {% if  leader.Twitter %}
+    <li><a href="{{leader.twitter}}"><img src="uploads/twitter.png" alt="" /></a></li>{% endif %}
+    {% if  leader.Facebook %}
+    <li><a href="{{leader.facebook}}"><img src="uploads/facebook.png" alt="" /></a></li>{% endif %}
+    {% if  leader.Email %}
+    <li><a href="{{leader.email}}"><img src="uploads/email.png" alt="" /></a></li>{% endif %}
+  </ul>  
+  {{ leader.content | truncatewords: 40 }}
+  <br />
+  <a href="{{leader.url}}" class="button">Read More</a>
+  
+  </div><!--/leader--> 
+  {% endfor %}
+</div><!--/Meet-pastor-->
+{% include footer.html %}
+</main>
